@@ -1,0 +1,54 @@
+{% extends 'profile.html' %}
+{% block content %}
+<h1>Password Manager</h1>
+
+<div class="info-card mb-auto w-75 d-flex flex-column justify-content-center align-items-center p-3">
+  <a href="{{url_for('addpass')}}" class="mx-auto">
+    <button type="submit" class="border-0 rounded-pill py-2 px-3" style="background: white; color: black;" name="add">+      Add Password</button>
+  </a>
+  
+  <div class="row mt-1 px-4 justify-content-center align-items-center">
+    {% for item in items %}
+      
+      <div class="col-12 col-md-10">
+        
+        <div class="info-card col-card my-3 px-4 py-3">
+          
+          <div class="card-body">
+            {% if item.website.startswith('http://') or item.website.startswith('https://') %}
+                  <a class="card-title text-light text-decoration-none" href="{{ item.website }}" target="_blank"><i>{{ item.website }}</i></a>
+              {% else %}
+                  <a class="card-title text-light text-decoration-none" href="http://{{ item.website }}" target="_blank"><i>{{ item.website }}</i></a>
+              {% endif %}
+            <h4 class="card-text text-light mt-3">Username/Email: <i>{{ item.username }}</i></h4>
+            <div class="password-field">
+              <h4 class="card-text text-light">Password: <span class="password-hidden">********</span><span class="password-visible" style="display:none">{{ item.password }}</span></h4>
+            </div>
+            <button type="button" class="border-0 rounded-pill w-25 py-2 view-password-btn"  style="background: #0ef; color: white;">View</button>
+          </div>
+        </div>
+        <br>
+      </div>
+    {% endfor %}
+  </div>
+  <script>
+    const viewPasswordBtns = document.querySelectorAll('.view-password-btn');
+    viewPasswordBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const passwordField = btn.previousElementSibling.querySelector('.password-hidden');
+        const password = passwordField.nextElementSibling.innerText;
+        if (passwordField.classList.contains('password-visible')) {
+          passwordField.innerText = '********';
+          passwordField.classList.remove('password-visible');
+          btn.innerText = 'View';
+        } else {
+          passwordField.innerText = password;
+          passwordField.classList.add('password-visible');
+          btn.innerText = 'Hide';
+        }
+      });
+    });
+  </script>
+
+  
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'profile.html' %}
+{% block content %}
+
+<div class="container d-flex flex-column mb-auto w-75">
+    <form action="/link_checker" method="post" class="mb-3 linksubmit">
+        
+        <div class="input-group">
+            <input type="text" name="url" id="url" placeholder="Check URL" class="col-9 p-3 form-control rounded-pill rounded-end input-field">
+            
+            <button type="submit" class="col-3 btn rounded-pill rounded-start submit-button">Check</button>
+        </div>
+    
+    </form>
+    
+    <div class="neon info-card p-5">
+        <div class="card-body d-flex flex-column align-items-center justify-content-around neon">    
+            <h1 class="header mb-4">The URL is {{message}}</h1>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

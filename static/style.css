@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body{
+    background-color: #1f242d;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.background-image {
+
+    /*background-image: url(images/test.jpg);*/
+    background-color: #1f242d;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#particle-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+  
+.login-card{
+    background: #323946;
+    
+    border: 5px solid #6d6d6d;
+    border-radius: 10px;
+
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+
+    transition: .5s;
+}
+
+
+.login-card:hover{
+    border: 5px solid #0ef;
+
+    background: rgba(0, 0, 0, 0.1);
+
+    box-shadow: 0 0 20px #0ef, inset 0 0 20px #0ef;
+}
+
+.login-card:hover .input-field{
+    border: 2px solid #0ef;
+    box-shadow: 0 0 10px #0ef, inset 0 0 10px #0ef;
+}
+
+.login-card:hover .submit-button{
+    background-color: #0ef;
+    box-shadow: 0 0 10px #0ef, inset 0 0 10px #0ef;
+
+    border: none;
+}
+
+.login-card:hover .href-color{
+    color: #0ef !important;
+}
+
+.login-card .header{
+    color: white;
+}
+
+.login-card:hover .header{
+    color: #0ef;
+}
+
+
+
+
+
+
+
+.input-field{
+    background: transparent;
+    border: 2px solid #545454;
+    color: white;
+
+    transition: .5s;
+}
+
+.input-field::placeholder{
+    color: white;
+}
+
+
+
+
+
+
+.card-body{
+    transition: .5s;
+}
+
+
+
+
+.submit-button{
+    background: #545454;
+    border: 2px solid #545454;
+
+    color: white;
+
+    transition: .5s;
+}
+
+
+
+.href-color{
+    color: #545454 !important;
+    transition: .5s;
+}
+
+
+
+
+.header{
+    color: white;
+    transition: 0.5s;
+}
+
+
+
+
+
+.info-card{
+    background: #323946 !important;
+    color: white;
+    border-radius: 15px;
+
+    transition: 0.5s;
+}
+
+.info-card:hover{
+    border: 2px solid #0ef !important;
+    color: white !important;
+
+    box-shadow: 0 0 5px #0ef;
+}
+
+.info-card:hover .header{
+    color: #0ef;   
+}
+
+.info-card:hover .card-body .submit-button{
+    background-color: #0ef;
+    box-shadow: 0 0 10px #0ef, inset 0 0 10px #0ef;
+}
+
+.info-button{
+    position: relative;
+    background-color: #0ef !important;
+    box-shadow: 0 0 10px #0ef;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    padding: 10px 30px;
+    transition: 0.5s;
+    font-size: 20px;
+    color: white;
+
+    border: none;
+}
+
+.info-button:hover{
+    background-color: #0ef;
+    color: white;
+}
+
+
+.info-button {
+    
+    
+    
+
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    padding: 10px 30px;
+    transition: 0.5s;
+
+}
+.info-button:hover {
+    letter-spacing: 0.25em;
+    
+}
+
+
+
+.info-card:hover .neon .header{
+    color: #0ef;   
+}
+
+
+
+
+
+.linksubmit .input-field{
+    border: 3px solid #323946;
+}
+
+.linksubmit .submit-button{
+    background: #323946;
+    border: none;
+}
+
+
+.linksubmit:hover .input-field{
+    border: 2px solid #0ef;
+
+    box-shadow: 0 0 5px #0ef, inset 0 0 5px #0ef;
+}
+
+.linksubmit:hover .submit-button{
+    background-color: #0ef;
+
+    border: none;
+
+    box-shadow: 0 0 5px #0ef, inset 0 0 5px #0ef;
+}
+
+
+
+
+
+.password-input {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .password-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000;
+  }
+  .password-input input:not(:focus) + .password-icon {
+    color: #ccc;
+  }
+
+
+
+
+
+
+
+#particles-js {
+    width: 100%;
+    
+}
+
+        
+.element a {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px !important;
+    text-decoration: none;
+    font-size: 24px !important;
+    overflow: hidden;
+}
+
+
+
+.glass-homepage{
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+
+    background: rgba(0, 0, 0, 0.1) !important;
+    border: solid 1px 
+}
+
+
+
+/*scrollbar*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+  
+    border-radius: 8px;
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 8px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    border-radius: 8px;
+  }
+
+  .pass-gen .input-field{
+    background: #1f242d;
+    color: white;
+    box-shadow: 0 0 5px #000000;
+  }
+
+
+  .pass-gen:hover .input-field{
+    border: 2px solid #0ef !important;
+    box-shadow: 0 0 5px #2ef;
+  }
+
+  .chatbox__support {
+    background: #f9f9f9;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* HEADER */
+.chatbox__header {
+    background: var(--primaryGradient);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: var(--primaryBoxShadow);
+}
+
+.chatbox__image--header {
+    margin-right: 10px;
+}
+
+.chatbox__heading--header {
+    font-size: 1.2rem !important;
+    color: black;
+}
+
+.chatbox__description--header {
+    font-size: .9rem !important;
+    color: white;
+}
+
+/* Messages */
+.chatbox__messages {
+    padding: 0 20px;
+}
+
+.messages__item {
+    margin-top: 10px;
+    color: #000;
+    background: white; 
+    padding: 8px 12px;
+    max-width: 70%;
+}
+
+.messages__item--visitor,
+.messages__item--typing {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.messages__item--operator {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: var(--primary);
+    color: black;
+}
+
+/* FOOTER */
+.chatbox__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background: var(--secondaryGradient);
+    box-shadow: var(--secondaryBoxShadow);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 20px;
+}
+
+.chatbox__footer input {
+    border: none;
+    padding: 10px 10px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.chatbox__send--footer {
+    color: black;
+}
+
+.chatbox__button button,
+.chatbox__button button:focus,
+.chatbox__button button:visited {
+    padding: 10px;
+    background: black;
+    border: none;
+    outline: none;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+
+
+.col-card{
+    background: #1f242d !important; 
+    box-shadow: 0 0 10px #000000;
+}

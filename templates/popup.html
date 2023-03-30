@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/assets/css/chat.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/assets/css/typing.css">
+    <title>Chatbox</title>
+</head>
+<body>
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Chat support</h4>
+                        
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div>
+                        {% if question %}
+                        <div class="messages__item messages__item--operator">
+                            {{ question }}
+                        </div>
+                        {% endif %}
+                        {% if answer %}
+                        <div class="messages__item messages__item--visitor">
+                            {{ answer }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <form id="chat-form" action="" method="post">
+                    <div class="chatbox__footer">
+                        <img src="../static/images/icons/emojis.svg" alt="">
+                        <img src="../static/images/icons/microphone.svg" alt="">
+                        <input type="text" placeholder="Write a message... " name="question">
+                        <a class="chatbox__send--footer" href="#" style="text-decoration: none;">
+                           <button type="submit">Send</button>
+                        </a>
+                        
+                    </div>
+                </form>
+                
+            </div>
+            <div class="chatbox__button" >
+                <img src="../static/images/chat.png" alt="" style="cursor: pointer;">
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/f887df033a.js" crossorigin="anonymous"></script>
+    <script src="../static/assets/js/Chat.js"></script>
+    <script src="../static/second_app.js"></script>
+</body>
+</html>

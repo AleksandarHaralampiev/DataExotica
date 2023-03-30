@@ -1,0 +1,25 @@
+{% extends 'profile.html' %}
+{% block content %}
+    <div class="mb-auto mt-2 w-100 overflow-auto">
+        <form action="/blacklist" method="post" class="linksubmit mb-4 mx-auto w-75">
+                    
+            <div class="input-group">
+                <input type="text" name="mail" id="url" placeholder="Email" class="col-10 rounded-pill rounded-end input-field p-3">
+                
+                <button type="submit" class="col-2 rounded-pill rounded-start submit-button">Check</button>
+            </div>
+
+        </form>
+
+        <div class="container info-card px-3 py-4 w-75 mb-4">
+
+            {% if package %}
+            <div class="container border-0 border-top border-bottom py-3 px-0 mb-2">BLACKLIST : STATUS</div>
+            {% for st, n in package %}
+                <div>{{ n }} : {{ st }}</div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
