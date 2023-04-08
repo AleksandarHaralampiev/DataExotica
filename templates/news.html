@@ -101,51 +101,22 @@ Home
     <section class="portfolio" id="portfolio">
         <h2 class="heading">Top<span> 5 </span>Cybersecurity News</h2>
 
+        
+
         <div class="portfolio-container">
-            <div class="portfolio-box">
-                <img src="static/images/Number1.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Number <span>1</span></h4>
-                    <b><b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, ab!</p></b></b>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="static/images/Number2.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Number <span>2</span></h4>
-                    <b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, ab!</p></b>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="static/images/Number3.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Number <span>3</span></h4>
-                    <b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, ab!</p></b>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="static/images/Number4.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Number <span>4</span></h4>
-                    <b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, ab!</p></b>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-box">
-                <img src="static/images/Number5.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Number <span>5</span></h4>
-                    <b><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, ab!</p></b>
-                    <a href="#"><i class='bx bx-link-external' ></i></a>
-                </div>
-            </div>
+            {% for x in range(5) %}
+                {% for new, des, l, i in context %}
+                    <div class="portfolio-box">
+                        <img src="static/images/Top5News.png" alt="">
+                        <div class="portfolio-layer">
+                            <!-- <h4>Number <span>{{x}}</span></h4> -->
+                            <h4>Important</h4>
+                            <b><p>{{new}}</p></b>                            
+                            <a href="{{l}}"><i class='bx bx-link-external' ></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
         </div>
     </section>
 
