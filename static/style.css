@@ -5,6 +5,13 @@ body{
     font-family: 'Roboto Mono', monospace;
 }
 
+:root{
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+}
+
 .background-image {
 
     /*background-image: url(images/test.jpg);*/
@@ -312,36 +319,54 @@ canvas {
 
   .pass-gen .input-field{
     background: #1f242d;
-    color: white;
     box-shadow: 0 0 5px #000000;
   }
 
 
-  .pass-gen:hover .input-field{
+.pass-gen:hover .input-field{
     border: 2px solid #0ef !important;
     box-shadow: 0 0 5px #2ef;
-  }
+}
 
-  .chatbox__support {
-    background: #f9f9f9;
+/************************** CHATBOX **************************/
+
+.container{
+    /* Make it into the bottom left corner */
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    /* Give it a margin */
+    margin-right: -10px;
+    margin-bottom: -50px;
+}
+
+.chatbox__support {
+    /*background: #f9f9f9;
+    background: red;*/
+    background: var(--bg-color);
     height: 450px;
-    width: 350px;
+    width: 700px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: -60px;
 }
 
 /* HEADER */
 .chatbox__header {
-    background: var(--primaryGradient);
+    /*background: var(--primaryGradient);
+    background: #0ef;*/
+    background: var(--second-bg-color);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 15px 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: var(--primaryBoxShadow);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: var(--bg-color);
 }
 
 .chatbox__image--header {
@@ -350,7 +375,8 @@ canvas {
 
 .chatbox__heading--header {
     font-size: 1.2rem !important;
-    color: black;
+    color: var(--text-color);
+    /* background-color: greenyellow; */
 }
 
 .chatbox__description--header {
@@ -361,12 +387,17 @@ canvas {
 /* Messages */
 .chatbox__messages {
     padding: 0 20px;
+    /* background-color: olivedrab; */
+    background-color: var(--bg-color);
 }
 
 .messages__item {
     margin-top: 10px;
-    color: #000;
-    background: white; 
+    margin-bottom: 10px;
+    color: var(--text-color);
+    /* background: white;  */
+    /* background: pink; */
+    background: var(--second-bg-color);
     padding: 8px 12px;
     max-width: 70%;
 }
@@ -382,7 +413,9 @@ canvas {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    background: var(--primary);
+    /* background: var(--primary); */
+    /* background: purple; */
+    background: var(--main-color);
     color: black;
 }
 
@@ -393,7 +426,9 @@ canvas {
     align-items: center;
     justify-content: space-between;
     padding: 20px 20px;
-    background: var(--secondaryGradient);
+    /* background: var(--secondaryGradient); */
+    /* background-color: yellow; */
+    background-color: var(--second-bg-color);
     box-shadow: var(--secondaryBoxShadow);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -404,28 +439,44 @@ canvas {
     border: none;
     padding: 10px 10px;
     border-radius: 30px;
+    width: 650px;
+    text-align: left;
+    margin-left: -10px;
+    margin-right: 10px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.chatbox__send--footer  {
+    color: black;
+    /* background-color: rgb(255, 206, 47); */
+    background-color: var(--main-color);
+    width: 80px;
+    height: 40px;
+    border-radius: 40px;
     text-align: center;
 }
 
-.chatbox__send--footer {
-    color: black;
+.chatbox__button a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 0.2rem solid #0ef;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: #0ef;
+    margin: 3rem 1rem 3rem 0;	
+    transition: 0.5s ease;
 }
 
-.chatbox__button button,
-.chatbox__button button:focus,
-.chatbox__button button:visited {
-    padding: 10px;
-    background: black;
-    border: none;
-    outline: none;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+.chatbox__button a:hover{
+    background: #0ef;
+    color: #323946;
+    box-shadow: 0 0 1rem #0ef;
 }
-
-
 
 .col-card{
     background: #1f242d !important; 

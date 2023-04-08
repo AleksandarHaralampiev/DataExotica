@@ -1,0 +1,32 @@
+<header>
+    <a href="#" class="logo">Data Exotica</a>
+
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar"><i class="fa-solid fa-bars"></i></label>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Tools + </a>
+                <ul class="drpdwn">
+                    <li><a href="{{url_for('link_checker')}}">Link Checker</a></li>
+                    <li><a href="{{url_for('dns_lookup')}}">DNS Lookup</a></li>
+                    <li><a href="{{url_for('blacklist')}}">Email Blacklistr</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Passwords + </a>
+                <ul class="drpdwn">
+                    <li><a href="{{url_for('manager')}}">Password Manager</a></li>
+                    <li><a href="{{url_for('password_generator')}}">Password Generator</a></li>
+                    <li><a href="{{url_for('password_checker')}}">Password Checker</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Lectures + </a>
+                <ul class="drpdwn">
+                    <li><a href="{{url_for('lecture_1')}}">Phishing</a></li>
+                </ul>
+            </li>
+            <li><a href="{{url_for('left')}}" class="logout">Logout</a></li>
+        </ul>
+    </nav>
+</header>

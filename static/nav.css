@@ -1,0 +1,79 @@
+/** Header **/
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo{
+    font-weight: bolder;
+    font-size: 25px;
+    color: var(--text-color);
+}
+
+header .navbar ul{
+    list-style: none;
+}
+
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+header .navbar ul li a{
+    font-size: 1.7rem;
+    padding: 20px;
+    color: var(--text-color);
+    display: block;
+    transition: 0.3s;
+}
+header .navbar ul li a.active,
+header .navbar ul li a:hover{
+    /* color: var(--bg-color);
+    background-color: var(--main-color); */
+    color: var(--main-color);
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background-color: var(--bg-color);
+    display: none;
+}
+
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 1px solid var(--second-bg-color);
+}
+
+/* if you click it once to deisplay it if you click it twice to hide it*/
+header .navbar ul li:hover > ul, 
+header .navbar ul li:focus-within > ul{
+    display: initial;
+}
+
+#menu-bar{
+    display: none;
+}
+
+header label{
+    font-size: 20px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+header .navbar ul li a.logout{
+    margin-left: 10rem;
+    margin-right: -10rem;
+}
