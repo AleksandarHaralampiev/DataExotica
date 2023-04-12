@@ -16,6 +16,7 @@
     --second-bg-color: #323946;
     --text-color: #fff;
     --main-color: #0ef;
+    --footer-color: #576178;
 }
 
 html{
@@ -448,7 +449,8 @@ span{
     background: var(--bg-color);
 }
 
-.footer-text p{
+.footer-text{
+    color: var(--footer-color);
     font-size: 1.6rem;
 }
 
