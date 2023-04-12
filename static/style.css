@@ -330,7 +330,7 @@ canvas {
 
 /************************** CHATBOX **************************/
 
-.container{
+.chat-container{
     /* Make it into the bottom left corner */
     position: fixed;
     bottom: 0;
