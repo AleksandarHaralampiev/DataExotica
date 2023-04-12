@@ -668,6 +668,7 @@ span{
     background: #0ef;
     color: #323946;
     box-shadow: 0 0 1rem #0ef;
+    cursor: pointer;
 }
 
 .col-card{
