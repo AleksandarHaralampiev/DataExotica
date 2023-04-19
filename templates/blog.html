@@ -1,10 +1,13 @@
 {% extends 'profile.html' %}
 {% block content %}
-<div class="mb-auto d-flex align-items-center justify-content-center w-100 overflow-auto">
+<div class="mb-auto d-flex flex-column align-items-center justify-content-center w-100 overflow-auto">
     
+    <h1>Blog</h1>
+    <h6 class="mb-4">Active forum for our users.</h6>
+  
     <div class="info-card d-flex flex-column align-items-end p-3 w-75">
       <div class="container d-flex flex-row align-items-center justify-content-between">
-        <p>Interact with other users. Ask and answer questions</p>  
+        <p>Ask and answer questions about cyber security or other things related to the topic.</p>  
         
         <a href="{{url_for('blog_add')}}" class="btn btn-dark bg-white text-black rounded-pill shadow">+   Add Blog</a>
       </div>
