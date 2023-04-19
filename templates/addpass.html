@@ -1,13 +1,13 @@
 {% extends 'profile.html' %}
 {% block content %}
-    <form method="POST" action="{{ url_for('addpass') }}" class="pass-gen info-card w-50 d-flex flex-column justify-content-center align-items-center px-5 pt-3 pb-5 mb-auto">
+    <form method="POST" action="{{ url_for('addpass') }}" class="pass-gen info-card w-50 d-flex flex-column justify-content-center align-items-center px-5 pt-4 pb-5 mb-auto">
         <h1 class="header mb-4">Add a new password</h1>
         
-        <input type="text" class="form-control input-field rounded-pill p-3 mb-3 border-0" id="website" name="website" placeholder="Website" required>
+        <input type="text" class="form-control input-field rounded-pill p-3 mb-3 mt-1 border-0 text-white" id="website" name="website" placeholder="Website" required>
         
-        <input type="text" class="form-control input-field rounded-pill p-3 mb-3 border-0" id="password" name="username" placeholder="Username" required>
+        <input type="text" class="form-control input-field rounded-pill p-3 mb-3 border-0 text-white" id="password" name="username" placeholder="Username" required>
         
-        <input type="password" class="form-control input-field rounded-pill p-3 mb-3 border-0" id="password" name="password" placeholder="Password" required>
+        <input type="password" class="form-control input-field rounded-pill p-3 mb-3 border-0 text-white" id="password" name="password" placeholder="Password" required>
 
         <button type="submit" class="info-button rounded-pill p-2 w-100">Submit</button>
     </form>
