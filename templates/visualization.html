@@ -81,17 +81,17 @@
             </div>
           
           </nav>
-        <div class="container d-flex flex-column flex-md-row justify-content-around align-items-center mb-auto p-3 w-75 ">
+        <div class="container d-flex flex-column flex-md-row justify-content-around align-items-center mb-auto p-3 w-75">
             
-            <div class="col-6 info-card p-1 p-sm-5 d-flex flex-column justify-content-center text-center overflow-auto h-100">
+            <div class="col-6 info-card p-1 p-sm-5 d-flex flex-column justify-content-center text-center overflow-hidden h-100">
                 <h2 class="header mb-auto">Hacker View</h2>
                 
                 <div class="container mb-auto d-flex flex-column justify-content-center align-items-center">
                     {% if hacked %}
                     <div style="display: flex; flex-direction: column;"> 
-                    <a href="https://git.io/typing-svg">
+                    <div>
                         <img src="https://readme-typing-svg.herokuapp.com/?lines=New+Victim+Found!;+Email: {{email}}; Pass:  {{password}}&center=true&size=20&width=1000">
-                      </a>
+                    </div>
                     </div>
                     {% endif %}
                 </div>
