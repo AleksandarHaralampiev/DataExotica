@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Password Manager</h1>
 
-<div class="info-card mb-auto w-75 d-flex flex-column justify-content-center align-items-center p-3">
+<div class="info-card my-auto w-75 d-flex flex-column justify-content-center align-items-center p-3">
   <a href="{{url_for('addpass')}}" class="mx-auto">
     <button type="submit" class="border-0 rounded-pill py-2 px-3" style="background: white; color: black;" name="add">+      Add Password</button>
   </a>
@@ -10,7 +10,7 @@
   <div class="row mt-1 px-4 justify-content-center align-items-center">
     {% for item in items %}
       
-      <div class="col-12 col-md-10">
+      <div class="col-12 col-md-4">
         
         <div class="info-card col-card my-3 px-4 py-3">
           
@@ -49,6 +49,7 @@
       });
     });
   </script>
+</div>
 
   
 {% endblock %}

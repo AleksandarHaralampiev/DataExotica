@@ -1,8 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+    --footer-color: #576178;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
 body{
-    background-color: #1f242d;
-    font-family: 'Roboto Mono', monospace;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
 }
 
 :root{
@@ -155,7 +185,7 @@ canvas {
 }
 
 .info-card:hover .header{
-    color: #0ef !important;   
+    color: #0ef;   
 }
 
 .info-card:hover .card-body .submit-button{
@@ -330,7 +360,15 @@ canvas {
 
 /************************** CHATBOX **************************/
 
-
+.chat-container{
+    /* Make it into the bottom left corner */
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    /* Give it a margin */
+    margin-right: -10px;
+    margin-bottom: -50px;
+}
 
 .chatbox__support {
     /*background: #f9f9f9;
