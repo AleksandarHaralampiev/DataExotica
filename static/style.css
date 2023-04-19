@@ -155,7 +155,7 @@ canvas {
 }
 
 .info-card:hover .header{
-    color: #0ef;   
+    color: #0ef !important;   
 }
 
 .info-card:hover .card-body .submit-button{
