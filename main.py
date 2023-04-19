@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response, redirect, url_for, session, flash
+from flask import Flask, render_template, request, make_response, redirect, url_for, session, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import hashlib
 import os
@@ -9,7 +9,7 @@ import random
 import requests
 from bs4 import BeautifulSoup
 import json
-from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
 import string
 from urllib.parse import urlparse
 from cryptography.fernet import Fernet, InvalidToken
@@ -22,12 +22,7 @@ load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-INSTRUCTIONS = """You are an AI assistant that is a cybersecurity expert.
-You know all about the different cyber attacks and cyber protection.
-You can advise how to prevent cyber attacks, what to do if the user is attacked and answer questions about cybersecurity.
-If you are unable to provide an answer to a question or the question is not associated with cybersecurity, please respond with the phrase "I'm just a cybersecurity expert, I can't help with that."
-Do not use any external URLs in your answers. Do not refer to any blogs in your answers.
-Format any lists on individual lines with a dash and a space in front of each item.Never answer other questions except cybersecurity."""
+INSTRUCTIONS = """You are an AI assistant that is a cybersecurity expert. You know all about the different cyber attacks and cyber protection. You can advise how to prevent cyber attacks, what to do if the user is attacked and answer questions about cybersecurity. If you are unable to provide an answer to a question or the question is not associated with cybersecurity, please respond with the phrase: I'm just a cybersecurity expert, I can't help with that. Do not use any external URLs in your answers. Do not refer to any blogs in your answers. Do not format any lists on individual lines. Instead, format them as a single line. Don't use numbers to seperate items in a list. Use First, Second, Third... Never answer other questions except cybersecurity."""
 TEMPERATURE = 0.5
 MAX_TOKENS = 500
 FREQUENCY_PENALTY = 0
@@ -123,8 +118,25 @@ class Item(db.Model):
     username = db.Column(db.String(), nullable = False)
     user_password = db.Column(db.String(), nullable = False)
     website = db.Column(db.String(), nullable = False)
-    
-    
+
+class Blog(db.Model):
+    __tablename__ = 'blog'
+    id = db.Column(db.Integer(), primary_key = True)
+    user = db.Column(db.String(), nullable = False)
+    title = db.Column(db.String(), nullable = False)
+    description = db.Column(db.String(), nullable = False)
+    views = db.Column(db.Integer, default=0)
+    comments = db.Column(db.Integer, default=0)
+
+class Comment(db.Model):
+    __tablename__ = 'comment'
+    id = db.Column(db.Integer(), primary_key = True)
+    comment = db.Column(db.String(), nullable = False)
+    sender = db.Column(db.String(), nullable = False)
+    likes = db.Column(db.Integer, default=0)
+    dislikes = db.Column(db.Integer, default=0)
+    post = db.Column(db.String(), nullable = False)
+
 # Routes
 @app.route('/')
 @app.route('/home')
@@ -562,7 +574,6 @@ def link_checker():
 
 @app.route('/news', methods= ['POST', 'GET'])
 def Index():
-    
     newsapi = NewsApiClient(api_key=os.environ.get('NEWS_API_KEY'))
     topheadlines = newsapi.get_everything(q='cybersecurity',
                                           language='en',
@@ -639,6 +650,72 @@ def blacklist():
 
     return render_template('blacklist.html', package=None)
 
+@app.route('/blog')
+def blog():
+    posts = Blog.query.all()
+    posts.reverse()
+    return render_template("blog.html", posts=posts)
+
+@app.route("/blog_add", methods=["POST", "GET"])
+def blog_add():
+    if request.method == "POST":
+            email = session['email']
+            acc = User.query.filter_by(email=email).first()
+            user = acc.username
+            title = request.form.get('title')
+            description = request.form.get('description')
+            blog = Blog(user=user, title=title, description=description)
+            db.session.add(blog)
+            db.session.commit()
+            return redirect(url_for("blog"))
+    return render_template("blog_add.html")
+@app.route('/blog_view/<int:Post_id>', methods=["POST", "GET"])
+def blog_view(Post_id):
+    post = db.session.get(Blog, Post_id)
+    if post:
+        post_id = Post_id
+
+    if request.method == "POST":
+        comment = request.form.get("comment")
+        post_id = Post_id
+        email = session['email']
+        acc = User.query.filter_by(email=email).first()
+        sender = acc.username
+        comd = Comment(comment=comment, post = post_id, sender=sender)
+        db.session.add(comd)
+        db.session.commit()
+        return redirect(url_for("blog_view", Post_id=Post_id))
+    comments = Comment.query.filter_by(post=post_id).all()
+    comments.reverse()
+    return render_template('blog_view.html', comments=comments, post=post)
+@app.route('/like_comment', methods=['POST'])
+def like_comment():
+    comment_id = request.form['comment_id']
+    comment = Comment.query.filter_by(id=comment_id).first()
+    if comment:
+        comment.likes += 1
+        db.session.commit()
+        return jsonify({'status': 'success', 'likes': comment.likes})
+    else:
+        return jsonify({'status': 'error', 'message': 'Comment not found'})
+
+@app.route('/dislike_comment', methods=['POST'])
+def dislike_comment():
+    comment_id = request.form['comment_id']
+    comment = Comment.query.filter_by(id=comment_id).first()
+    if comment:
+        comment.dislikes += 1
+        db.session.commit()
+        return jsonify({'status': 'success', 'dislikes': comment.dislikes})
+    else:
+        return jsonify({'status': 'error', 'message': 'Comment not found'})
+@app.route('/blog_view/<int:Post_id>/view_count', methods=["POST", "GET"])
+def update_view_count(Post_id):
+    post = db.session.get(Blog, Post_id)
+    if post:
+        post.views += 1
+        db.session.commit()
+    return '', 204
+
 if __name__ == "__main__":
     app.run(debug=True)
-

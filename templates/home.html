@@ -1,112 +1,188 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">`
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>Home</title>
+        <title>Home</title>
 
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-      <link rel="stylesheet" href="../static/home.css">
-      
-  </head>
-  <body>
+        <script src="https://kit.fontawesome.com/c8a1dbe24f.js" crossorigin="anonymous"></script>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-      <!--Navigation bar-->
+        <link rel="stylesheet" href="../static/newstyle.css">
+        <link rel="stylesheet" href="../static/assets/css/chat.css">
+        <link rel="stylesheet" href="../static/assets/css/typing.css">
+        
+    </head>
+    <body>
 
-      <header class="header">
-          <a href="#" class="logo">Data Exotica</a>
+        <!--Navigation bar-->
 
-          <i class='bx bx-menu' id="menu-icon"></i>
+        <header>
+            <a href="#" class="logo">Data Exotica</a>
 
-          <nav class="navbar">
-              <a href="#home" class="active">Home</a>
-              <a href="#about">About</a>
-              <a href="#portfolio">News</a>
-          </nav>
-      </header>
+            <input type="checkbox" id="menu-bar">
+            <label for="menu-bar"><i class="fa-solid fa-bars"></i></label>
 
-      <!--Home-->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#" class="active">News</a></li>
+                    <li><a href="{{url_for('login')}}" class="logout">Login</a></li>
+                </ul>
+            </nav>
+        </header>
 
-      <section class="home" id="home">
-          <div class="home-content">
-              <h3>Hi, we are</h3>
-              <h1>Data Exotica</h1>
-              <h3>And we provide <span class="multiple-text"></span></h3>
-              <p>This platform is built for people who are looking forward to a better and safer Internet experience!!!</p>
-              <div class="social-media">
-                  <a href="#"><i class='bx bx-bot'></i></a>
-              </div>
-              <a href="{{url_for('login')}}" class="btn">Log in</a>
-          </div>
-          <div class="home-img">
-              <img src="../static/images/home.png" width="500px">
-          </div>
-      </section>
+        <!--    Page    -->
 
-      <!--About-->
-      
-      <section class="about" id="about">
-          <div class="about-img">
-              <img src="../static/images/about.png" alt="">
-          </div>
+        <!--Home-->
 
-          <div class="about-content">
-              <h2 class="heading"> About <span>Us</span></h2>
-              <h3>What can we do for you?</h3>
-              <p>Data Exotica provides advanced data security solutions for all types of user data. Our password manager, security tools, and phishing prevention lectures ensure that users can keep their information safe from potential threats. We offer affordable and easy-to-use solutions for everyone, no matter their technical expertise or budget. Choose Data Exotica for top-notch data security and peace of mind</p>
-              <a href="#" class="btn">Read More</a>
-          </div>
-      </section>
-
-      <!--Portfolio-->
-
-      <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>News</span></h2>
-
-        <div class="portfolio-container row d-flex flex-row justify-content-center align-items-center px-0">
-          {% for _ in range(5) %}
-
-          {% for new, des, l, i in context %}
-            
-            <div class="portfolio-box col-3">
-                <img src="{{i}}" onerror="this.src='../static/images/Portfolio.png'">
-                <div class="portfolio-layer overflow-auto">
-                    <h3><i>{{new}}</i></h3>
-                    <a href="{{l}}"><i class='bx bx-link-external'></i></a>
-                </div>
+        <section class="home" id="home">
+            <div class="home-content">
+                <h3>Hi, we are</h3>
+                <h1>Data Exotica</h1>
+                <h3>And we provide <span class="multiple-text"></span></h3>
+                <p>This platform is built for people who are looking forward to a safer Internet experience!</p>
+                <!--<div class="social-media">
+                    <a href="#"><i class='bx bx-bot'></i></a>
+                </div>-->
+                <a href="#services" class="btn">Get Started</a>
             </div>
-          {% endfor %}
-          {% endfor %}
-        </div>
-      </section>
+            <div class="home-img">
+                <img src="static/images/home.png" width="500px">
+            </div>
+        </section>
 
-      <!--Footer-->
+        <!--About-->
+        
+        <section class="about" id="about">
+            <div class="about-img">
+                <img src="static/images/about.png" alt="">
+            </div>
 
-      <footer class="footer">
-          <div class="footer-text">
-              <p>This is the project of team "Exotic" for the ninth edition of Hack Tues.</p>
-          </div>
+            <div class="about-content">
+                <h2 class="heading"> About <span>Us</span></h2>
+                <h3>What can we do for you?</h3>
+                <p>Data Exotica provides advanced data security solutions for all types of user data. Our password manager, security tools, and phishing prevention lectures ensure that users can keep their information safe from potential threats. We offer affordable and easy-to-use solutions for everyone, no matter their technical expertise or budget. Choose Data Exotica for top-notch data security and peace of mind</p>
+                <!--<a href="#" class="btn">Read More</a>-->
+            </div>
+        </section>
 
-          <div class="footer-iconTop">
-              <a href="#home">
-                  <i class='bx bx-up-arrow-alt' ></i>
-              </a>
-          </div>
-      </footer>
+        <!--Services-->
 
-      <!--Scroll reveal-->
+        <section class="services" id="services">
+            <h2 class="heading">Our <span>Services</span></h2>
 
-      <script src="https://unpkg.com/scrollreveal"></script>
+            <div class="services-container">
+                <div class="services-box">
+                    <i class='bx bx-link'></i>
+                    <h3>Link Checkup</h3>
+                    <p>Check the safety of URLs by scanning them for malware, phishing, and other security threats.</p>
+                    <a href="{{url_for('link_checker')}}" class="btn">Read more</a>
+                </div>
 
-      <!--Multiple Text-->
+                <div class="services-box">
+                    <i class='bx bx-server'></i>
+                    <h3>DNS Lookup</h3>
+                    <p>Find information about a domain name's IP address, mail server, and other DNS records.</p>
+                    <a href="{{url_for('dns_lookup')}}" class="btn">Read more</a>
+                </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-      
-      <!--Javascript-->
+                <div class="services-box">
+                    <i class='bx bx-envelope' ></i>
+                    <h3>Email Blacklist</h3>
+                    <p>Check whether an email address is on a blacklist and has a history of being associated with spam or other unwanted emails.</p>
+                    <a href="{{url_for('blacklist')}}" class="btn">Read more</a>
+                </div>
 
-      <script src="../static/script.js"></script>
-  </body>
+                <div class="services-box">
+                    <i class='bx bx-lock-alt' ></i>
+                    <h3>Password manager</h3>
+                    <p>Store and manage your passwords securely in one place, making it easy to access and use them when needed.</p>
+                    <a href="{{url_for('manager')}}" class="btn">Read more</a>
+                </div>
+
+                <div class="services-box">
+                    <i class='bx bxs-key'></i>
+                    <h3>Password Generator</h3>
+                    <p>Generate strong, unique passwords that are difficult for hackers to crack, helping you protect your online accounts from unauthorized access.</p>
+                    <a href="{{url_for('password_generator')}}" class="btn">Read more</a>
+                </div>
+
+                <div class="services-box">
+                    <i class='bx bx-check-shield'></i>
+                    <h3>Password Checker</h3>
+                    <p>Check the strength and security of your existing passwords, identifying any weak or compromised passwords that may put your accounts at risk.</p>
+                    <a href="{{url_for('password_checker')}}" class="btn">Read more</a>
+                </div>
+
+                <div class="services-box">
+                    <i class='bx bx-notepad'></i>
+                    <h3>Phishing Lecture</h3>
+                    <p>Access educational materials on phishing, a common cyber attack where scammers try to trick you into revealing sensitive information, to learn how to recognize and avoid falling victim to phishing attempts.</p>
+                    <a href="{{url_for('lecture_1')}}" class="btn">Read more</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!--Portfolio-->
+
+        <section class="portfolio" id="portfolio">
+            <h2 class="heading">Top<span> 5 </span>Cybersecurity News</h2>
+
+            
+
+            <div class="portfolio-container">
+                {% for x in range(5) %}
+                    {% for new, des, l, i in context %}
+                        <div class="portfolio-box">
+                            <img src="static/images/Top5News.png" alt="">
+                            <div class="portfolio-layer">
+                                <!-- <h4>Number <span>{{x}}</span></h4> -->
+                                <h4>Important</h4>
+                                <b><p>{{new}}</p></b>                            
+                                <a href="{{l}}"><i class='bx bx-link-external' ></i></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </section>
+
+        
+        <!--Footer-->
+
+        <footer class="footer">
+            <div class="footer-text">
+                <p>This is the project of team "Exotic" for the ninth edition of Hack Tues.</p>
+            </div>
+
+            <div class="footer-iconTop">
+                <a href="#home">
+                    <i class='bx bx-up-arrow-alt' ></i>
+                </a>
+            </div>
+        </footer>
+
+        <!--Scroll reveal-->
+
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--Multiple Text-->
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        
+        <!--Javascript-->
+
+        <script>
+            const typed = new Typed('.multiple-text', {
+                strings:["Cybersecurity bot", "Password manager", "Link checker", "DNS Lookup"],
+                typeSpeed: 100,
+                backSpeed: 100,
+                backDelay: 1000,
+                loop: true
+            });
+        </script>
+    </body>
 </html>
