@@ -11,76 +11,20 @@
         <link rel="stylesheet" href="../static/assets/css/typing.css">
         <link rel="stylesheet" href="../static/style.css">
         <link rel="stylesheet" href="../static/visu.css">
+        <link rel="stylesheet" href="../static/nav.css">
     </head>
     
     <body>
         
       <div class="vh-100 d-flex flex-column align-items-center justify-content-center text-white overflow-auto">  
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent mb-auto w-100">
-  
-            <div class="container-fluid">
-              
-              
-              <a class="navbar-brand me-auto" href="{{url_for('home')}}">
-                <img src="../static/images/logo.png" height="40px">
-                <span class="mx-0">Data Exotica</span>
-              </a>
-          
-              
-              
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          
-              
-              
-              <div class="collapse navbar-collapse ms-2" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{url_for('Index')}}" id="navbarDropdownPasswords" role="button"  aria-expanded="false">
-                      News
-                    </a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPasswords" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Passwords
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownPasswords">
-                      <li><a class="dropdown-item" href="{{url_for('password_generator')}}">Password generator</a></li>
-                      <li><a class="dropdown-item" href="{{url_for('password_checker')}}">Password checker</a></li>
-                      <li><a class="dropdown-item" href="{{url_for('manager')}}">Password manager</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Tools
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownTools">
-                    <li><a class="dropdown-item" href="{{url_for('dns_lookup')}}">DNS Lookup</a></li>
-                      <li><a class="dropdown-item" href="{{url_for('link_checker')}}">Link Checkup</a></li>
-                      <li><a class="dropdown-item" href="{{url_for('blacklist')}}">Email Blacklist</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLectures" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Lectures
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownLectures">
-                      <li><a class="dropdown-item" href="{{url_for('lecture_1')}}">Phishing Attack</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{url_for('left')}}">Sign Out</a>
-                  </li>
-                </ul>
-              </div>
-            
-            
-            </div>
-          
-          </nav>
+        <!-- {% include 'navbar3.html'%} -->
+        {% include 'navbar3.html'%}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="container d-flex flex-column flex-md-row justify-content-around align-items-center mb-auto p-3 w-75 ">
             
             <div class="col-6 info-card p-1 p-sm-5 d-flex flex-column justify-content-center text-center overflow-auto h-100">
